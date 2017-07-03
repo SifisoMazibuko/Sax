@@ -8,7 +8,7 @@ namespace Sax
     public partial class PersonPage : ContentPage
     {
 		private createDatabase _database;
-       
+        private PersonPage _parent;
 		public ListView _list;
 
 		public PersonPage(createDatabase database)
@@ -43,7 +43,7 @@ namespace Sax
                 //_list.ItemsSource = null;
 
                 _database.DeleteAll();
-
+                _list.ItemsSource = _database.GetPerson();
                 //prsn.FirstName = string.Empty;
                // prsn.LastName = string.Empty;
                 
