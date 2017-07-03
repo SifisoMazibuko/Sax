@@ -1,7 +1,7 @@
 ﻿using System;
 using SQLite.Net;
 
-namespace Sax.DbConnection
+namespace Sax
 {
     public interface ISQLite
     {

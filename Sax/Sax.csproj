@@ -52,8 +52,8 @@
     <Compile Include="CreateSQLDbPage.xaml.cs">
       <DependentUpon>CreateSQLDbPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DbConnection\ISQLite.cs" />
     <Compile Include="DbConnection\createDatabase.cs" />
+    <Compile Include="ISQLite.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

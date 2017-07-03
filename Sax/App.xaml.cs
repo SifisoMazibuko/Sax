@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Sax.DbConnection;
+using Xamarin.Forms;
 
 namespace Sax
 {
@@ -8,10 +9,15 @@ namespace Sax
         {
             InitializeComponent();
 
-            MainPage = new SaxPage();
+            GetPage();
         }
+		public void GetPage()
+		{
+			var _database = new createDatabase();
+			MainPage = new NavigationPage(new PersonPage(_database));
+		}
 
-        protected override void OnStart()
+		protected override void OnStart()
         {
             // Handle when your app starts
         }
