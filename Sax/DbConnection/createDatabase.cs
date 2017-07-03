@@ -28,6 +28,13 @@ namespace Sax.DbConnection
 		{
 			_con.Delete<Person>(id);
 		}
+
+		public void DeleteAll()
+		{
+            _con.DeleteAll<Person>();
+		}
+
+
 		public void AddPerson(string firstName, string lastName)
 		{
 			var newPerson = new Person

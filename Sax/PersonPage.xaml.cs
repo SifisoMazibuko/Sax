@@ -8,6 +8,7 @@ namespace Sax
     public partial class PersonPage : ContentPage
     {
 		private createDatabase _database;
+       
 		public ListView _list;
 
 		public PersonPage(createDatabase database)
@@ -21,7 +22,7 @@ namespace Sax
 			_list.ItemsSource = person;
 			_list.ItemTemplate = new DataTemplate(typeof(TextCell));
             _list.ItemTemplate.SetBinding(TextCell.TextProperty, "FirstName");
-            _list.ItemTemplate.SetBinding(TextCell.TextProperty, "LastName");
+            _list.ItemTemplate.SetBinding(TextCell.DetailProperty, "LastName");
 
 			//toolbar 
 			var toolbarItem = new ToolbarItem
@@ -31,7 +32,31 @@ namespace Sax
 			};
 
 			ToolbarItems.Add(toolbarItem);
-			Content = _list;
+			//Content = _list;
+
+            var button = new Button { 
+                Text = "Clear List"
+            };
+            var prsn = new Person();
+            button.Clicked += (sender,args) => {
+
+                //_list.ItemsSource = null;
+
+                _database.DeleteAll();
+
+                //prsn.FirstName = string.Empty;
+               // prsn.LastName = string.Empty;
+                
+            };
+            var stack = new StackLayout
+            {
+                Children = {
+                    _list,
+                    button
+                }
+            };
+            Content = stack;
+
 		}
 
 		public void refreshList()
